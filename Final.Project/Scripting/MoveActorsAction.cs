@@ -1,7 +1,9 @@
+using Byui.Games.Scripting;
+
 namespace Final.Project.Scripting 
 {
 
-    public abstract class MoveActorsAction : Action
+    public abstract class MoveActorsAction : Byui.Games.Scripting.Action
     {
 
 
