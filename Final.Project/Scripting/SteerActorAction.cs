@@ -31,7 +31,7 @@ namespace Final.Project
                 // determine vertical or y-axis direction
                 if (_keyboardService.IsKeyDown(KeyboardKey.W))
                 {
-                    directionY = -5;
+                    directionY = -20;
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.S))
                 {
@@ -48,10 +48,10 @@ namespace Final.Project
                     directionX = 5;
                 }
 
-                if (_keyboardService.IsKeyDown(KeyboardKey.Space))
-                {
-                    directionY = -20;
-                }
+                // if (_keyboardService.IsKeyDown(KeyboardKey.Space))
+                // {
+                //     directionY = -20;
+                // }
 
                 // steer the actor in the desired direction
                 Actor actor = scene.GetFirstActor("actors");
