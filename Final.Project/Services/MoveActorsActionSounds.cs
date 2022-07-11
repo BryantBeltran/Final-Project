@@ -4,7 +4,7 @@ using Byui.Games.Scripting;
 using Byui.Games.Services;
 
 
-namespace Example.Sounds
+namespace Final
 {
     /// <summary>
     /// Moves the actor and bounces it off the screen walls. Note the path to the bounce sound file 
@@ -25,7 +25,8 @@ namespace Example.Sounds
         {
             try
             {
-                string bounceSound = _settingsService.GetString("bounceSound");
+                string bounceSound = _settingsService.GetString("");
+                // call scene and actors
                 Actor screen = scene.GetFirstActor("screen");
                 Actor actor = scene.GetFirstActor("actors");
                 
