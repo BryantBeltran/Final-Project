@@ -33,10 +33,10 @@ namespace Final.Project
             Actor enemy = new Actor();
             enemy.SizeTo(200, 170);
             enemy.MoveTo(380, 190);
-            enemy.Tint(Color.Yellow());
+            enemy.Tint(Color.Red());
 
             Actor screen = new Actor();
-            screen.SizeTo(640, 480);
+            screen.SizeTo(1280, 580);
             screen.MoveTo(0, 0);
 
             // Instantiate the actions that use the actors.
