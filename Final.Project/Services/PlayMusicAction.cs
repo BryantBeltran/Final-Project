@@ -5,7 +5,7 @@ using Byui.Games.Scripting;
 using Byui.Games.Services;
 
 
-namespace Example.Sounds
+namespace Final
 {
     /// <summary>
     /// Plays background music for the example. Note the path to the music file comes from the
