@@ -4,14 +4,14 @@ using Byui.Games.Directing;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
 
-
-namespace Final  // Note: actual namespace depends on the project name.
+namespace Final
 {
-    internal class Program
+    public class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Director director = new Director(SceneManager.VideoService);
+            director.StartGame();
         }
     }
 }
