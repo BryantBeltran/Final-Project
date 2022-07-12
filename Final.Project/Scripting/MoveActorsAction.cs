@@ -28,7 +28,7 @@ namespace Final.Project
                 Actor screen = scene.GetFirstActor("screen");
                 
                 // move the actor and restrict it to the screen boundaries
-                actor.Move(10); // use a constant pull of 5 in the downward direction
+                actor.Move(35); // use a constant pull of 5 in the downward direction
                 actor.ClampTo(screen); // keep actor inside screen.
             }
             catch (Exception exception)

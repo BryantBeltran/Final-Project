@@ -20,6 +20,12 @@ namespace Final.Project
             // Instantiate a service factory for other objects to use.
             IServiceFactory serviceFactory = new RaylibServiceFactory();
 
+            Image backg = new Image();
+            backg.SizeTo(1280, 720);
+            backg.MoveTo(0, 0);
+            backg.Display("Assets/woods.png");
+
+
             // Instantiate the actors that are used in this example.
             Label label = new Label();
             label.Display("'w', 's', 'a', 'd' to move");
@@ -28,7 +34,7 @@ namespace Final.Project
             Actor actor = new Actor();
             actor.SizeTo(100, 100);
             actor.MoveTo(270, 190);
-            actor.Tint(Color.Purple());
+            actor.Tint(Color.White());
 
             Actor enemy = new Actor();
             enemy.SizeTo(200, 170);
@@ -36,8 +42,9 @@ namespace Final.Project
             enemy.Tint(Color.Red());
 
             Actor screen = new Actor();
-            screen.SizeTo(1280, 580);
+            screen.SizeTo(1280, 720);
             screen.MoveTo(0, 0);
+
 
             // Instantiate the actions that use the actors.
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
@@ -48,11 +55,13 @@ namespace Final.Project
             Scene scene = new Scene();
             scene.AddActor("actors", actor);
             scene.AddActor("actors", enemy);
+            scene.AddActor("background", backg);
             scene.AddActor("labels", label);
             scene.AddActor("screen", screen);
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Output, drawActorAction);
+            // scene.AddAction(Phase.Output, drawImageAction);
 
             // Start the game.
             Director director = new Director(serviceFactory);
