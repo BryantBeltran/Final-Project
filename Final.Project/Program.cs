@@ -53,7 +53,7 @@ namespace Final.Project
 
             Actor plat2 = new Actor();
             plat2.SizeTo(300, 20);
-            plat2.MoveTo(680, 600);
+            plat2.MoveTo(280, 600);
             plat2.Tint(Color.Black());
 
 
@@ -61,7 +61,7 @@ namespace Final.Project
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
-            PlayMusicAction playmusicaction = new PlayMusicAction(serviceFactory);
+            PlayMusicAction playMusicAction = new PlayMusicAction(serviceFactory);
 
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
@@ -75,7 +75,7 @@ namespace Final.Project
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Output, drawActorAction);
-            scene.AddAction(Phase.Output, playmusicaction);
+            scene.AddAction(Phase.Output, playMusicAction);
 
             // Start the game.
             Director director = new Director(serviceFactory);
