@@ -28,8 +28,7 @@ namespace Example.Sounds
         {
             try
             {
-                string backgroundMusic = _settingsService.GetString("");
-
+                string backgroundMusic = _settingsService.GetString("backgroundMusic");
                 // start playing music if it isn't already
                 if (!_audioService.IsPlayingMusic(backgroundMusic))
                 {

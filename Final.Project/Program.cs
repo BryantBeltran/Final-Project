@@ -2,6 +2,7 @@
 using Byui.Games.Directing;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
+using Example.Sounds;
 
 
 namespace Final.Project
@@ -60,6 +61,7 @@ namespace Final.Project
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
+            PlayMusicAction playmusicaction = new PlayMusicAction(serviceFactory);
 
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
@@ -73,7 +75,7 @@ namespace Final.Project
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Output, drawActorAction);
-
+            scene.AddAction(Phase.Output, playmusicaction);
 
             // Start the game.
             Director director = new Director(serviceFactory);
