@@ -26,13 +26,13 @@ namespace Final.Project
             {
                 // get the actors from the scene
                 Actor actor = scene.GetFirstActor("actors");
-                Actor player = scene.GetFirstActor("player");
                 Actor screen = scene.GetFirstActor("screen");
                 
                 // move the actor and restrict it to the screen boundaries
-                MovePlayer(player, scene);
+                MovePlayer(actor, scene);
 
-                player.ClampTo(screen); // keep actor inside screen.
+                actor.ClampTo(screen); // keep actor inside screen.
+
             }
             catch (Exception exception)
             {
