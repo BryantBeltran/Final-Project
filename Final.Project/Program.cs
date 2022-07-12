@@ -34,6 +34,7 @@ namespace Final.Project
             Actor actor = new Actor();
             actor.SizeTo(100, 100);
             actor.MoveTo(270, 190);
+<<<<<<< HEAD
             actor.Tint(Color.White());
 
             Actor enemy = new Actor();
@@ -43,6 +44,12 @@ namespace Final.Project
 
             Actor screen = new Actor();
             screen.SizeTo(1280, 720);
+=======
+            actor.Tint(Color.Blue());
+
+            Actor screen = new Actor();
+            screen.SizeTo(640, 480);
+>>>>>>> 1de71cff9abcc213b0a3d9ce53f0d8b8e7181835
             screen.MoveTo(0, 0);
 
 
@@ -54,8 +61,11 @@ namespace Final.Project
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
             scene.AddActor("actors", actor);
+<<<<<<< HEAD
             scene.AddActor("actors", enemy);
             scene.AddActor("background", backg);
+=======
+>>>>>>> 1de71cff9abcc213b0a3d9ce53f0d8b8e7181835
             scene.AddActor("labels", label);
             scene.AddActor("screen", screen);
             scene.AddAction(Phase.Input, steerActorAction);
