@@ -30,6 +30,7 @@ namespace Final.Project
                 
                 // move the actor and restrict it to the screen boundaries
                 actor.Move(20); // use a constant pull of 5 in the downward direction
+                MovePlayer(actor,scene);
                 actor.ClampTo(screen); // keep actor inside screen.
 
             }

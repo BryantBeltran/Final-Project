@@ -48,10 +48,10 @@ namespace Final.Project
                     directionX = 15;
                 }
 
-                // if (_keyboardService.IsKeyDown(KeyboardKey.Space))
-                // {
-                //     directionY = -20;
-                // }
+                if (_keyboardService.IsKeyDown(KeyboardKey.Space))
+                {
+                    directionY = -20;
+                }
 
                 // steer the actor in the desired direction
                 Actor actor = scene.GetFirstActor("actors");
