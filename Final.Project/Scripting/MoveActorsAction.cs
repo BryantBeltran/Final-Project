@@ -29,12 +29,7 @@ namespace Final.Project
                 Actor screen = scene.GetFirstActor("screen");
                 
                 // move the actor and restrict it to the screen boundaries
-<<<<<<< HEAD
-                actor.Move(35); // use a constant pull of 5 in the downward direction
-=======
-                MovePlayer(actor, scene);
-
->>>>>>> 1de71cff9abcc213b0a3d9ce53f0d8b8e7181835
+                actor.Move(20); // use a constant pull of 5 in the downward direction
                 actor.ClampTo(screen); // keep actor inside screen.
 
             }
