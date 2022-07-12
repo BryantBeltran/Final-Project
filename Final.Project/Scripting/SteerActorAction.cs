@@ -31,21 +31,21 @@ namespace Final.Project
                 // determine vertical or y-axis direction
                 if (_keyboardService.IsKeyDown(KeyboardKey.W))
                 {
-                    directionY = -15;
+                    directionY = -5;
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.S))
                 {
-                    directionY = 20;
+                    directionY = 5;
                 }
 
                 // determine horizontal or x-axis direction
                 if (_keyboardService.IsKeyDown(KeyboardKey.A))
                 {
-                    directionX = -15;
+                    directionX = -5;
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.D))
                 {
-                    directionX = 15;
+                    directionX = 5;
                 }
 
                 if (_keyboardService.IsKeyDown(KeyboardKey.Space))
