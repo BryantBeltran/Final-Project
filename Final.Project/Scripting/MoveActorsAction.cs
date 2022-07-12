@@ -29,8 +29,8 @@ namespace Final.Project
                 Actor screen = scene.GetFirstActor("screen");
                 
                 // move the actor and restrict it to the screen boundaries
-                actor.Move(20); // use a constant pull of 5 in the downward direction
-                MovePlayer(actor,scene);
+                // actor.Move(20); // use a constant pull of 5 in the downward direction
+                MovePlayer(actor, scene);
                 actor.ClampTo(screen); // keep actor inside screen.
 
             }
@@ -49,8 +49,8 @@ namespace Final.Project
         {
 
             Vector2 change = actor.GetVelocity();
-            MoveX(actor, change.X, scene.GetAllActors("actors"));
-            MoveY(actor, change.Y, scene.GetAllActors("solids"));
+            MoveX(actor, change.X, scene.GetAllActors("platforms"));
+            MoveY(actor, change.Y, scene.GetAllActors("platforms"));
 
         }
         private void MoveX(Actor actor, float change, List<Actor> solids)
@@ -61,7 +61,7 @@ namespace Final.Project
 
             while (move != 0)
             {
-                if (!CheckCollision(solids, actor.GetPosition() + new Vector2 (sign, 0)))
+                if (!CheckCollision(solids, actor, actor.GetPosition() + new Vector2 (sign, 0)))
                 {
                     actor.MoveTo(actor.GetPosition() + new Vector2 (sign, 0));
                     move -= sign;
@@ -81,7 +81,7 @@ namespace Final.Project
 
             while (move != 0)
             {
-                if (!CheckCollision(solids, actor.GetPosition() + new Vector2 (0, sign)))
+                if (!CheckCollision(solids, actor, actor.GetPosition() + new Vector2 (0, sign)))
                 {
                     actor.MoveTo(actor.GetPosition() + new Vector2 (0, sign));
                     move -= sign;
@@ -93,12 +93,15 @@ namespace Final.Project
             }
         }
 
-        private bool CheckCollision(List<Actor> actors, Vector2 point)
+        private bool CheckCollision(List<Actor> actors, Actor actor, Vector2 point)
         {
+
+            Actor check = actor;
+            check.MoveTo(point);
 
             foreach (Actor item in actors)
             {
-                if (item.Overlaps(point))
+                if (item.Overlaps(check))
                 {
                     return true;
                 }
