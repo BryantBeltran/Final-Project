@@ -24,8 +24,6 @@ namespace Example.Sounds
             _settingsService = serviceFactory.GetSettingsService();
         }
 
-        
-
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
         {
             try
