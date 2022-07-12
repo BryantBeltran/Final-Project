@@ -26,6 +26,8 @@ namespace Final.Project
                 Image backg = (Image) scene.GetFirstActor("background");
                 Label label = (Label) scene.GetFirstActor("labels");
                 Actor actor = scene.GetFirstActor("actors");
+                Actor enemy = scene.GetFirstActor("enemy");
+                Actor plat1 = scene.GetFirstActor("platforms");
 
                 
                 // draw the actors on the screen using the video service
@@ -33,6 +35,10 @@ namespace Final.Project
                 _videoService.Draw(backg);
                 _videoService.Draw(label);
                 _videoService.Draw(actor);
+                _videoService.Draw(enemy);
+                _videoService.Draw(plat1);
+
+                
 
                 
                 _videoService.FlushBuffer();
