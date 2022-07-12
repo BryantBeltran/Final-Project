@@ -27,7 +27,7 @@ namespace Final.Project
                 Label label = (Label) scene.GetFirstActor("labels");
                 Actor actor = scene.GetFirstActor("actors");
                 Actor enemy = scene.GetFirstActor("enemy");
-                Actor plat1 = scene.GetFirstActor("platforms");
+                List <Actor> platforms = scene.GetAllActors<Actor>("platforms");
 
                 
                 // draw the actors on the screen using the video service
@@ -36,7 +36,7 @@ namespace Final.Project
                 _videoService.Draw(label);
                 _videoService.Draw(actor);
                 _videoService.Draw(enemy);
-                _videoService.Draw(plat1);
+                _videoService.Draw(platforms);
 
                 
 

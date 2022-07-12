@@ -53,7 +53,7 @@ namespace Final.Project
 
             Actor plat2 = new Actor();
             plat2.SizeTo(300, 20);
-            plat2.MoveTo(280, 600);
+            plat2.MoveTo(680, 600);
             plat2.Tint(Color.Black());
 
 
