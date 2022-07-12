@@ -15,7 +15,8 @@ namespace Final
     {
         private IAudioService _audioService;
         private ISettingsService _settingsService;
-
+        
+        private string musicBackroundString = "";
        
 
         public PlayMusicAction(IServiceFactory serviceFactory)
@@ -28,7 +29,8 @@ namespace Final
         {
             try
             {
-                string backgroundMusic = _settingsService.GetString("");
+                
+                string backgroundMusic = _settingsService.GetString(musicBackroundString);
 
                 // start playing music if it isn't already
                 if (!_audioService.IsPlayingMusic(backgroundMusic))

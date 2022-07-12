@@ -20,12 +20,13 @@ namespace Final
             _audioService = serviceFactory.GetAudioService();
             _settingsService = serviceFactory.GetSettingsService();
         }
+        private string soundeffect = "";
 
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
         {
             try
             {
-                string bounceSound = _settingsService.GetString("");
+                string bounceSound = _settingsService.GetString(soundeffect);
                 // call scene and actors
                 Actor screen = scene.GetFirstActor("screen");
                 Actor actor = scene.GetFirstActor("actors");
