@@ -24,11 +24,10 @@ namespace Final.Project
             {
                 // get the actors from the cast
                 Image backg = (Image) scene.GetFirstActor("background");
-                // Image platpic = (Image) scene.GetFirstActor("plat");
                 Label label = (Label) scene.GetFirstActor("labels");
                 Actor actor = scene.GetFirstActor("actors");
                 Actor enemy = scene.GetFirstActor("enemy");
-                List <Actor> platforms = scene.GetAllActors<Actor>("platforms");
+                List <Image> platforms = scene.GetAllActors<Image>("platforms");
 
                 
                 // draw the actors on the screen using the video service
@@ -38,7 +37,6 @@ namespace Final.Project
                 _videoService.Draw(label);
                 _videoService.Draw(actor);
                 _videoService.Draw(enemy);
-                // _videoService.Draw(platpic);
                 _videoService.Draw(platforms);
 
 
