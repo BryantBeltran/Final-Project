@@ -26,11 +26,6 @@ namespace Final.Project
             backg.MoveTo(0, 0);
             backg.Display("Assets/woods.png");
 
-            // Image platpic = new Image();
-            // backg.SizeTo(200, 50);
-            // backg.MoveTo(280, 280);
-            // backg.Display("Assets/woods.png");
-
             // Instantiate the actors that are used in this example.
             Label label = new Label();
             label.Display("'w', 's', 'a', 'd' to move");
@@ -51,21 +46,33 @@ namespace Final.Project
             screen.MoveTo(0, 0);
 
             // Platforms
-            Actor plat1 = new Actor();
-            plat1.SizeTo(100, 20);
+            Image plat1 = new Image();
+            plat1.SizeTo(226, 52);
             plat1.MoveTo(280, 300);
-            plat1.Tint(Color.Orange());
+            plat1.Display("Assets/platfo.png");
 
-            Actor plat2 = new Actor();
-            plat2.SizeTo(100, 20);
+            Image plat2 = new Image();
+            plat2.SizeTo(226, 52);
             plat2.MoveTo(680, 300);
-            plat2.Tint(Color.Orange());
+            plat2.Display("Assets/platfo.png");
 
-            Actor plat3 = new Actor();
-            plat3.SizeTo(100, 20);
+            Image plat3 = new Image();
+            plat3.SizeTo(226, 52);
             plat3.MoveTo(450, 500);
-            plat3.Tint(Color.Orange());
+            plat3.Display("Assets/platfo.png");
 
+            Image ground = new Image();
+            ground.SizeTo(1400, 100);
+            ground.MoveTo(0, 635);
+            Image lBorder = new Image();
+            lBorder.SizeTo(2, 800);
+            lBorder.MoveTo(0, 0);
+            lBorder.Tint(Color.Red());
+            
+            Image rBorder = new Image();
+            rBorder.SizeTo(2, 800);
+            rBorder.MoveTo(1278, 0);
+            rBorder.Tint(Color.Red());
 
             // Instantiate the actions that use the actors.
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
@@ -79,10 +86,12 @@ namespace Final.Project
             scene.AddActor("actors", actor);
             scene.AddActor("enemy", enemy);
             scene.AddActor("background", backg);
-            // scene.AddActor("plat", platpic);
             scene.AddActor("platforms",plat1);
             scene.AddActor("platforms",plat2);
             scene.AddActor("platforms",plat3);
+            scene.AddActor("platforms",ground);
+            scene.AddActor("platforms",lBorder);
+            scene.AddActor("platforms",rBorder);
             scene.AddActor("labels", label);
        
             scene.AddAction(Phase.Input, steerActorAction);
