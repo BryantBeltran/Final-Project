@@ -57,9 +57,9 @@ namespace Final.Project
         private void MovePlayer(Actor actor, Scene scene) 
         {
 
-            Vector2 change = actor.GetVelocity();
-            MoveX(actor, change, scene.GetAllActors("platforms"));
-            MoveY(actor, change, scene.GetAllActors("platforms"));
+            
+            MoveX(actor, actor.GetVelocity(), scene.GetAllActors("platforms"));
+            MoveY(actor, actor.GetVelocity(), scene.GetAllActors("platforms"));
             
 
         }
