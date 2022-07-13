@@ -29,6 +29,7 @@ namespace Final.Project
                 Actor enemy = scene.GetFirstActor("enemy");
                 Actor ground = scene.GetFirstActor("ground");
                 List <Image> platforms = scene.GetAllActors<Image>("platforms");
+                
 
                 
                 // draw the actors on the screen using the video service
