@@ -27,6 +27,7 @@ namespace Final.Project
                 Label label = (Label) scene.GetFirstActor("labels");
                 Actor actor = scene.GetFirstActor("actors");
                 Actor enemy = scene.GetFirstActor("enemy");
+                Actor ground = scene.GetFirstActor("ground");
                 List <Image> platforms = scene.GetAllActors<Image>("platforms");
 
                 
@@ -38,6 +39,7 @@ namespace Final.Project
                 _videoService.Draw(actor);
                 _videoService.Draw(enemy);
                 _videoService.Draw(platforms);
+                _videoService.Draw(ground);
 
 
 
