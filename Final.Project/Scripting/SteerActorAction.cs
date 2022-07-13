@@ -52,6 +52,10 @@ namespace Final.Project
                 {
                     directionY = -20;
                 }
+                else
+                {
+                    directionY = 5;
+                }
 
                 // steer the actor in the desired direction
                 Actor actor = scene.GetFirstActor("actors");
