@@ -2,7 +2,7 @@
 using Byui.Games.Directing;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
-using Example.Sounds;
+using Sounds;
 
 
 namespace Final.Project
@@ -31,10 +31,31 @@ namespace Final.Project
             label.Display("'w', 's', 'a', 'd' to move");
             label.MoveTo(25, 25);
             //Our Hero
-            Actor actor = new Actor();
+            Image actor = new Image();
             actor.SizeTo(60, 60);
             actor.MoveTo(270, 190);
-            actor.Tint(Color.Yellow());
+            actor.Display("Assets/robot0.png");
+
+            string[] filePaths = new string[6];
+            filePaths[0] = "Assets/robot1.png";
+            filePaths[1] = "Assets/robot2.png";
+            filePaths[2] = "Assets/robot3.png";
+            filePaths[3] = "Assets/robot4.png";
+            filePaths[4] = "Assets/robot5.png";
+            filePaths[5] = "Assets/robot6.png";
+
+            float durationInSeconds = 0.3f;
+            int framesPerSecond = 60;
+
+
+
+
+            Image actor2 = new Image();
+            actor2.SizeTo(60, 60);
+            actor2.MoveTo(270, 190);
+            actor2.Animate(filePaths,durationInSeconds,framesPerSecond);
+
+            
             // Our Goal
             Actor enemy = new Actor();
             enemy.SizeTo(100, 100);
@@ -84,6 +105,7 @@ namespace Final.Project
             Scene scene = new Scene();
             scene.AddActor("screen", screen);
             scene.AddActor("actors", actor);
+            scene.AddActor("actors", actor2);
             scene.AddActor("enemy", enemy);
             scene.AddActor("background", backg);
             scene.AddActor("platforms",plat1);
@@ -93,12 +115,14 @@ namespace Final.Project
             scene.AddActor("platforms",lBorder);
             scene.AddActor("platforms",rBorder);
             scene.AddActor("labels", label);
-       
+
+            
+
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Output, drawActorAction);
             scene.AddAction(Phase.Output, playMusicAction);
-
+            
             // Start the game.
             Director director = new Director(serviceFactory);
             director.Direct(scene);

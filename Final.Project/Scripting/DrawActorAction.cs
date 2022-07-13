@@ -25,7 +25,7 @@ namespace Final.Project
                 // get the actors from the cast
                 Image backg = (Image) scene.GetFirstActor("background");
                 Label label = (Label) scene.GetFirstActor("labels");
-                Actor actor = scene.GetFirstActor("actors");
+                Image actor = (Image) scene.GetFirstActor("actors");
                 Actor enemy = scene.GetFirstActor("enemy");
                 Actor ground = scene.GetFirstActor("ground");
                 List <Image> platforms = scene.GetAllActors<Image>("platforms");
