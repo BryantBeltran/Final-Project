@@ -49,11 +49,12 @@ namespace Final.Project
                     directionX += 1;
                 }
 
-                if (_keyboardService.IsKeyDown(KeyboardKey.Space))
+                if (_keyboardService.IsKeyDown(KeyboardKey.Space) )
                 {
                     directionY += -10;
                 }
-                else
+
+                //add gravity
                 {
                     directionY += 1;
                 }
