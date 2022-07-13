@@ -16,8 +16,6 @@ namespace Example.Sounds
         private IAudioService _audioService;
         private ISettingsService _settingsService;
 
-       
-
         public PlayMusicAction(IServiceFactory serviceFactory)
         {
             _audioService = serviceFactory.GetAudioService();
@@ -29,6 +27,7 @@ namespace Example.Sounds
             try
             {
                 string backgroundMusic = _settingsService.GetString("backgroundMusic");
+
                 // start playing music if it isn't already
                 if (!_audioService.IsPlayingMusic(backgroundMusic))
                 {

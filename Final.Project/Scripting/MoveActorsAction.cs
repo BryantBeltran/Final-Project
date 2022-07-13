@@ -96,7 +96,9 @@ namespace Final.Project
         private bool CheckCollision(List<Actor> actors, Actor actor, Vector2 point)
         {
 
-            Actor check = actor;
+            Actor check = new Actor();
+            check.SizeTo(actor.GetSize());
+
             check.MoveTo(point);
 
             foreach (Actor item in actors)
