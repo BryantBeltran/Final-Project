@@ -26,10 +26,10 @@ namespace Final.Project
             backg.MoveTo(0, 0);
             backg.Display("Assets/woods.png");
 
-            Image platpic = new Image();
-            backg.SizeTo(200, 50);
-            backg.MoveTo(280, 280);
-            backg.Display("Assets/plat.png");
+            // Image platpic = new Image();
+            // backg.SizeTo(200, 50);
+            // backg.MoveTo(280, 280);
+            // backg.Display("Assets/woods.png");
 
             // Instantiate the actors that are used in this example.
             Label label = new Label();
@@ -37,12 +37,12 @@ namespace Final.Project
             label.MoveTo(25, 25);
             //Our Hero
             Actor actor = new Actor();
-            actor.SizeTo(100, 100);
+            actor.SizeTo(60, 60);
             actor.MoveTo(270, 190);
             actor.Tint(Color.Yellow());
             // Our Goal
             Actor enemy = new Actor();
-            enemy.SizeTo(150, 150);
+            enemy.SizeTo(100, 100);
             enemy.MoveTo(980, 100);
             enemy.Tint(Color.Red());
 
@@ -52,14 +52,19 @@ namespace Final.Project
 
             // Platforms
             Actor plat1 = new Actor();
-            plat1.SizeTo(200, 50);
+            plat1.SizeTo(100, 20);
             plat1.MoveTo(280, 300);
-            plat1.Tint(Color.White());
+            plat1.Tint(Color.Orange());
 
             Actor plat2 = new Actor();
-            plat2.SizeTo(200, 50);
-            plat2.MoveTo(680, 600);
-            plat2.Tint(Color.White());
+            plat2.SizeTo(100, 20);
+            plat2.MoveTo(680, 300);
+            plat2.Tint(Color.Orange());
+
+            Actor plat3 = new Actor();
+            plat3.SizeTo(100, 20);
+            plat3.MoveTo(450, 500);
+            plat3.Tint(Color.Orange());
 
 
             // Instantiate the actions that use the actors.
@@ -74,9 +79,10 @@ namespace Final.Project
             scene.AddActor("actors", actor);
             scene.AddActor("enemy", enemy);
             scene.AddActor("background", backg);
-            scene.AddActor("plat", platpic);
+            // scene.AddActor("plat", platpic);
             scene.AddActor("platforms",plat1);
             scene.AddActor("platforms",plat2);
+            scene.AddActor("platforms",plat3);
             scene.AddActor("labels", label);
        
             scene.AddAction(Phase.Input, steerActorAction);
