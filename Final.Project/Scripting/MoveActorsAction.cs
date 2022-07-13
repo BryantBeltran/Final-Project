@@ -49,13 +49,13 @@ namespace Final.Project
         {
 
             Vector2 change = actor.GetVelocity();
-            MoveX(actor, change.X, scene.GetAllActors("platforms"));
-            MoveY(actor, change.Y, scene.GetAllActors("platforms"));
+            MoveX(actor, change, scene.GetAllActors("platforms"));
+            MoveY(actor, change, scene.GetAllActors("platforms"));
 
         }
-        private void MoveX(Actor actor, float change, List<Actor> solids)
+        private void MoveX(Actor actor, Vector2 change, List<Actor> solids)
         {
-            int move = Convert.ToInt32(Math.Round(change));
+            int move = Convert.ToInt32(Math.Round(change.X));
 
             int sign = Math.Sign(move);
 
@@ -68,14 +68,15 @@ namespace Final.Project
                 }
                 else
                 {
+                    actor.Steer(0, change.Y);
                     break;
                 }
             }
         }
 
-        private void MoveY(Actor actor, float change, List<Actor> solids)
+        private void MoveY(Actor actor, Vector2 change, List<Actor> solids)
         {
-            int move = Convert.ToInt32(Math.Round(change));
+            int move = Convert.ToInt32(Math.Round(change.Y));
 
             int sign = Math.Sign(move);
 
@@ -88,6 +89,7 @@ namespace Final.Project
                 }
                 else
                 {
+                    actor.Steer(change.X, 0);
                     break;
                 }
             }
