@@ -26,6 +26,11 @@ namespace Final.Project
             backg.MoveTo(0, 0);
             backg.Display("Assets/woods.png");
 
+            Image platpic = new Image();
+            backg.SizeTo(200, 50);
+            backg.MoveTo(280, 280);
+            backg.Display("Assets/plat.png");
+
             // Instantiate the actors that are used in this example.
             Label label = new Label();
             label.Display("'w', 's', 'a', 'd' to move");
@@ -34,7 +39,7 @@ namespace Final.Project
             Actor actor = new Actor();
             actor.SizeTo(100, 100);
             actor.MoveTo(270, 190);
-            actor.Tint(Color.White());
+            actor.Tint(Color.Yellow());
             // Our Goal
             Actor enemy = new Actor();
             enemy.SizeTo(150, 150);
@@ -47,14 +52,14 @@ namespace Final.Project
 
             // Platforms
             Actor plat1 = new Actor();
-            plat1.SizeTo(300, 20);
+            plat1.SizeTo(200, 50);
             plat1.MoveTo(280, 300);
-            plat1.Tint(Color.Black());
+            plat1.Tint(Color.White());
 
             Actor plat2 = new Actor();
-            plat2.SizeTo(300, 20);
+            plat2.SizeTo(200, 50);
             plat2.MoveTo(680, 600);
-            plat2.Tint(Color.Black());
+            plat2.Tint(Color.White());
 
 
             // Instantiate the actions that use the actors.
@@ -65,13 +70,15 @@ namespace Final.Project
 
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
+            scene.AddActor("screen", screen);
             scene.AddActor("actors", actor);
             scene.AddActor("enemy", enemy);
             scene.AddActor("background", backg);
+            scene.AddActor("plat", platpic);
             scene.AddActor("platforms",plat1);
             scene.AddActor("platforms",plat2);
             scene.AddActor("labels", label);
-            scene.AddActor("screen", screen);
+       
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Output, drawActorAction);
