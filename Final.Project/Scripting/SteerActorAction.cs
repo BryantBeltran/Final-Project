@@ -32,30 +32,30 @@ namespace Final.Project
                 // determine vertical or y-axis direction
                 if (_keyboardService.IsKeyDown(KeyboardKey.W))
                 {
-                    directionY = -5;
+                    directionY += -1;
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.S))
                 {
-                    directionY = 5;
+                    directionY = 1;
                 }
 
                 // determine horizontal or x-axis direction
                 if (_keyboardService.IsKeyDown(KeyboardKey.A))
                 {
-                    directionX = -5;
+                    directionX += -1;
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.D))
                 {
-                    directionX = 5;
+                    directionX += 1;
                 }
 
                 if (_keyboardService.IsKeyDown(KeyboardKey.Space))
                 {
-                    directionY = -20;
+                    directionY += -10;
                 }
                 else
                 {
-                    directionY = 10;
+                    directionY += 1;
                 }
 
                 // steer the actor in the desired direction
