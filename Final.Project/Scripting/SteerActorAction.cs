@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
@@ -52,10 +53,14 @@ namespace Final.Project
                 {
                     directionY = -20;
                 }
+                else
+                {
+                    directionY = 10;
+                }
 
                 // steer the actor in the desired direction
                 Actor actor = scene.GetFirstActor("actors");
-                actor.Steer(directionX, directionY);
+                actor.Steer(actor.GetVelocity() + new Vector2(directionX, directionY));
             }
             catch (Exception exception)
             {
