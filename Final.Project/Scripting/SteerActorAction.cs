@@ -15,10 +15,15 @@ namespace Final.Project
     public class SteerActorAction : Byui.Games.Scripting.Action
     {
         private IKeyboardService _keyboardService;
+        private IAudioService _audioService;
+        private ISettingsService _settingsService;
+        
 
         public SteerActorAction(IServiceFactory serviceFactory)
         {
             _keyboardService = serviceFactory.GetKeyboardService();
+            _audioService = serviceFactory.GetAudioService();
+            _settingsService = serviceFactory.GetSettingsService();
         }
 
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
@@ -52,6 +57,9 @@ namespace Final.Project
                 if (_keyboardService.IsKeyDown(KeyboardKey.Space) )
                 {
                     directionY += -10;
+                    // string bounceSound = _settingsService.GetString("bounceSound");
+                    // _audioService.PlaySound(bounceSound);
+
                 }
 
                 //add gravity
