@@ -39,7 +39,6 @@ namespace Final.Project
                 _videoService.Draw(actor);
                 _videoService.Draw(enemy);
                 _videoService.Draw(platforms);
-                _videoService.Draw(ground);
 
 
 

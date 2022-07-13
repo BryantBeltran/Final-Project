@@ -61,10 +61,9 @@ namespace Final.Project
             plat3.MoveTo(450, 500);
             plat3.Display("Assets/platfo.png");
 
-            Actor ground = new Actor();
-            screen.SizeTo(480, 40);
-            screen.MoveTo(200, 200);
-            ground.Tint(Color.Red());
+            Image ground = new Image();
+            ground.SizeTo(1400, 100);
+            ground.MoveTo(0, 635);
 
             // Instantiate the actions that use the actors.
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
@@ -81,7 +80,7 @@ namespace Final.Project
             scene.AddActor("platforms",plat1);
             scene.AddActor("platforms",plat2);
             scene.AddActor("platforms",plat3);
-            scene.AddActor("ground",ground);
+            scene.AddActor("platforms",ground);
             scene.AddActor("labels", label);
        
             scene.AddAction(Phase.Input, steerActorAction);
