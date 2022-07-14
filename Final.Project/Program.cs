@@ -117,7 +117,7 @@ namespace Final.Project
             Scene scene = new Scene();
             scene.AddActor("screen", screen);
             scene.AddActor("actors", actor);
-            scene.AddActor("enemy", enemy);
+            scene.AddActor("enemies", enemy);
             scene.AddActor("background", backg);
             scene.AddActor("platforms",plat1);
             scene.AddActor("platforms",plat2);
