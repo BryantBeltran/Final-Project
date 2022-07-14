@@ -28,22 +28,27 @@ namespace Final.Project
 
             // Instantiate the actors that are used in this example.
             Label label = new Label();
-            label.Display("'w', 's', 'a', 'd' to move");
+            label.Display("'a', 'd' to move 'space' jump");
+
             label.MoveTo(25, 25);
             //Our Hero
-            float durationInSeconds = 0.3f;
+            float durationInSeconds = 0.4f;
             int framesPerSecond = 60;
-            string[] filePaths = new string[6];
-            filePaths[0] = "Assets/robot1.png";
-            filePaths[1] = "Assets/robot2.png";
-            filePaths[2] = "Assets/robot3.png";
-            filePaths[3] = "Assets/robot4.png";
-            filePaths[4] = "Assets/robot5.png";
-            filePaths[5] = "Assets/robot6.png";
+            string[] filePaths = new string[10];
+            filePaths[0] = "Assets/idle (1).png";
+            filePaths[1] = "Assets/idle (2).png";
+            filePaths[2] = "Assets/idle (3).png";
+            filePaths[3] = "Assets/idle (4).png";
+            filePaths[4] = "Assets/idle (5).png";
+            filePaths[5] = "Assets/idle (6).png";
+            filePaths[6] = "Assets/idle (7).png";
+            filePaths[7] = "Assets/idle (8).png";
+            filePaths[8] = "Assets/idle (9).png";
+            filePaths[9] = "Assets/idle (10).png";
+
             Image actor = new Image();
-            actor.SizeTo(80, 80);
-            actor.MoveTo(270, 190);
-            actor.Display("Assets/robot0.png");
+            actor.SizeTo(66, 109);
+            actor.MoveTo(270, 120);
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
 
             
@@ -108,6 +113,7 @@ namespace Final.Project
             // Instantiate the actions that use the actors.
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
+            // EnemyCollision enemyCollision = new EnemyCollision(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
             PlayMusicAction playMusicAction = new PlayMusicAction(serviceFactory);
 
@@ -115,7 +121,7 @@ namespace Final.Project
             Scene scene = new Scene();
             scene.AddActor("screen", screen);
             scene.AddActor("actors", actor);
-            scene.AddActor("enemy", enemy);
+            scene.AddActor("enemies", enemy);
             scene.AddActor("background", backg);
             scene.AddActor("platforms",plat1);
             scene.AddActor("platforms",plat2);
@@ -130,6 +136,7 @@ namespace Final.Project
 
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
+            // scene.AddAction(phase.Update,);
             scene.AddAction(Phase.Output, drawActorAction);
             scene.AddAction(Phase.Output, playMusicAction);
             
