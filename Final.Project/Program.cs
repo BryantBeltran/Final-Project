@@ -31,11 +31,8 @@ namespace Final.Project
             label.Display("'w', 's', 'a', 'd' to move");
             label.MoveTo(25, 25);
             //Our Hero
-            Image actor = new Image();
-            actor.SizeTo(60, 60);
-            actor.MoveTo(270, 190);
-            actor.Display("Assets/robot0.png");
-
+            float durationInSeconds = 0.3f;
+            int framesPerSecond = 60;
             string[] filePaths = new string[6];
             filePaths[0] = "Assets/robot1.png";
             filePaths[1] = "Assets/robot2.png";
@@ -43,17 +40,11 @@ namespace Final.Project
             filePaths[3] = "Assets/robot4.png";
             filePaths[4] = "Assets/robot5.png";
             filePaths[5] = "Assets/robot6.png";
-
-            float durationInSeconds = 0.3f;
-            int framesPerSecond = 60;
-
-
-
-
-            Image actor2 = new Image();
-            actor2.SizeTo(60, 60);
-            actor2.MoveTo(270, 190);
-            actor2.Animate(filePaths,durationInSeconds,framesPerSecond);
+            Image actor = new Image();
+            actor.SizeTo(60, 60);
+            actor.MoveTo(270, 190);
+            actor.Display("Assets/robot0.png");
+            actor.Animate(filePaths,durationInSeconds,framesPerSecond);
 
             
             // Our Goal
@@ -109,7 +100,6 @@ namespace Final.Project
             Scene scene = new Scene();
             scene.AddActor("screen", screen);
             scene.AddActor("actors", actor);
-            scene.AddActor("actors", actor2);
             scene.AddActor("enemy", enemy);
             scene.AddActor("background", backg);
             scene.AddActor("platforms",plat1);
