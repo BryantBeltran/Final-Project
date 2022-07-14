@@ -47,8 +47,8 @@ namespace Final.Project
             filePaths[9] = "Assets/idle (10).png";
 
             Image actor = new Image();
-            actor.SizeTo(130, 127);
-            actor.MoveTo(270, 190);
+            actor.SizeTo(66, 109);
+            actor.MoveTo(270, 120);
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
 
             
