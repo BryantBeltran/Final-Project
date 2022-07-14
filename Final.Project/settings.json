@@ -3,5 +3,6 @@
   "screenCaption": "CSE210",
   "screenWidth": 1280,
   "screenHeight": 720,
-  "backgroundMusic": "Services/Music/battleMusic.mp3"
+  "backgroundMusic": "Services/Music/battleMusic.mp3",
+  "bounceSound": "Services/Music/Bounce.mp3"
 }

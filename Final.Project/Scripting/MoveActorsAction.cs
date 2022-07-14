@@ -14,10 +14,17 @@ namespace Final.Project
     public class MoveActorAction : Byui.Games.Scripting.Action
     {
         private IKeyboardService _keyboardService;
+        private IAudioService _audioService;
+        private ISettingsService _settingsService;
+        
 
         public MoveActorAction(IServiceFactory serviceFactory)
         {
             _keyboardService = serviceFactory.GetKeyboardService();
+            _audioService = serviceFactory.GetAudioService();
+            _settingsService = serviceFactory.GetSettingsService();
+
+           
         }
 
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
@@ -25,6 +32,7 @@ namespace Final.Project
             try
             {
                 // get the actors from the scene
+                string bounceSound = _settingsService.GetString("bounceSound");
                 Actor actor = scene.GetFirstActor("actors");
                 Actor screen = scene.GetFirstActor("screen");
                 
@@ -49,9 +57,10 @@ namespace Final.Project
         private void MovePlayer(Actor actor, Scene scene) 
         {
 
-            Vector2 change = actor.GetVelocity();
-            MoveX(actor, change, scene.GetAllActors("platforms"));
-            MoveY(actor, change, scene.GetAllActors("platforms"));
+            
+            MoveX(actor, actor.GetVelocity(), scene.GetAllActors("platforms"));
+            MoveY(actor, actor.GetVelocity(), scene.GetAllActors("platforms"));
+            
 
         }
         private void MoveX(Actor actor, Vector2 change, List<Actor> solids)
@@ -66,10 +75,14 @@ namespace Final.Project
                 {
                     actor.MoveTo(actor.GetPosition() + new Vector2 (sign, 0));
                     move -= sign;
+
                 }
                 else
                 {
+                   
                     actor.Steer(0, change.Y);
+                    string bounceSound = _settingsService.GetString("bounceSound");
+                    _audioService.PlaySound(bounceSound);
                     break;
                 }
             }
@@ -80,17 +93,22 @@ namespace Final.Project
             int move = Convert.ToInt32(Math.Round(change.Y));
 
             int sign = Math.Sign(move);
+            
 
             while (move != 0)
             {
+                 
                 if (!CheckCollision(solids, actor, actor.GetPosition() + new Vector2 (0, sign)))
                 {
                     actor.MoveTo(actor.GetPosition() + new Vector2 (0, sign));
                     move -= sign;
+                    
                 }
                 else
                 {
+                    
                     actor.Steer(change.X, 0);
+                    
                     break;
                 }
             }
@@ -108,6 +126,7 @@ namespace Final.Project
             {
                 if (item.Overlaps(check))
                 {
+                    
                     return true;
                 }
             }
