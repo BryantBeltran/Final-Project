@@ -106,6 +106,10 @@ namespace Final.Project
                 }
                 else
                 {
+                    if (sign > 0)
+                    {
+                        actor.isGrounded = true;
+                    }
                     
                     actor.Steer(change.X, 0);
                     
