@@ -89,11 +89,15 @@ namespace Final.Project
             lBorder.SizeTo(2, 800);
             lBorder.MoveTo(0, 0);
             lBorder.Tint(Color.Red());
-            
             Image rBorder = new Image();
             rBorder.SizeTo(2, 800);
             rBorder.MoveTo(1278, 0);
             rBorder.Tint(Color.Red());
+            Image topBorder = new Image();
+            topBorder.SizeTo(1400, 2);
+            topBorder.MoveTo(0, 0);
+            topBorder.Tint(Color.Red());
+
 
             // Instantiate the actions that use the actors.
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
@@ -114,6 +118,7 @@ namespace Final.Project
             scene.AddActor("platforms",ground);
             scene.AddActor("platforms",lBorder);
             scene.AddActor("platforms",rBorder);
+            scene.AddActor("platforms",topBorder);
             scene.AddActor("labels", label);
 
             
