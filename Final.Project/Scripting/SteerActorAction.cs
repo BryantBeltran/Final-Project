@@ -32,6 +32,7 @@ namespace Final.Project
             {
 
                 Actor actor = scene.GetFirstActor("actors");
+                Vector2 current_velocity = actor.GetVelocity();
 
                 int maxSpeed = 10;
                 int gravity = 1;
@@ -50,6 +51,7 @@ namespace Final.Project
                 {
                     directionY += 1;
                 }
+                
 
                 // determine horizontal or x-axis direction
                 if (_keyboardService.IsKeyDown(KeyboardKey.A))
@@ -59,6 +61,10 @@ namespace Final.Project
                 else if (_keyboardService.IsKeyDown(KeyboardKey.D))
                 {
                     directionX += 1;
+                }
+                else if (current_velocity.X != 0)
+                {
+                    directionX -= Math.Sign(current_velocity.X);
                 }
 
                 if (_keyboardService.IsKeyDown(KeyboardKey.Space) && actor.isGrounded)
@@ -78,7 +84,7 @@ namespace Final.Project
                 // steer the actor in the desired direction
                 
                 
-                Vector2 newVelocity = actor.GetVelocity() + new Vector2(directionX, directionY);
+                Vector2 newVelocity = current_velocity + new Vector2(directionX, directionY);
                 newVelocity.X = Math.Clamp(newVelocity.X,  -maxSpeed, maxSpeed);
 
                 actor.Steer(newVelocity);
