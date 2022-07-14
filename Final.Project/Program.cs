@@ -28,7 +28,8 @@ namespace Final.Project
 
             // Instantiate the actors that are used in this example.
             Label label = new Label();
-            label.Display("'w', 's', 'a', 'd' to move");
+            label.Display("'a', 'd' to move 'space' jump");
+
             label.MoveTo(25, 25);
             //Our Hero
             Image actor = new Image();
@@ -102,6 +103,7 @@ namespace Final.Project
             // Instantiate the actions that use the actors.
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
+            // EnemyCollision enemyCollision = new EnemyCollision(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
             PlayMusicAction playMusicAction = new PlayMusicAction(serviceFactory);
 
@@ -125,6 +127,7 @@ namespace Final.Project
 
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
+            // scene.AddAction(phase.Update,);
             scene.AddAction(Phase.Output, drawActorAction);
             scene.AddAction(Phase.Output, playMusicAction);
             
