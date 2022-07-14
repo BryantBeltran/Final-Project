@@ -30,6 +30,13 @@ namespace Final.Project
         {
             try
             {
+
+                Actor actor = scene.GetFirstActor("actors");
+
+                int maxSpeed = 10;
+                int gravity = 1;
+
+
                 // declare direction variables
                 int directionX = 0;
                 int directionY = 0;
@@ -41,7 +48,7 @@ namespace Final.Project
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.S))
                 {
-                    directionY = 1;
+                    directionY += 1;
                 }
 
                 // determine horizontal or x-axis direction
@@ -54,9 +61,10 @@ namespace Final.Project
                     directionX += 1;
                 }
 
-                if (_keyboardService.IsKeyDown(KeyboardKey.Space) )
+                if (_keyboardService.IsKeyDown(KeyboardKey.Space) && actor.isGrounded)
                 {
-                    directionY += -10;
+                    directionY += -20;
+                    actor.isGrounded = false;
                     // string bounceSound = _settingsService.GetString("bounceSound");
                     // _audioService.PlaySound(bounceSound);
 
@@ -64,12 +72,16 @@ namespace Final.Project
 
                 //add gravity
                 {
-                    directionY += 1;
+                    directionY += gravity;
                 }
 
                 // steer the actor in the desired direction
-                Actor actor = scene.GetFirstActor("actors");
-                actor.Steer(actor.GetVelocity() + new Vector2(directionX, directionY));
+                
+                
+                Vector2 newVelocity = actor.GetVelocity() + new Vector2(directionX, directionY);
+                newVelocity.X = Math.Clamp(newVelocity.X,  -maxSpeed, maxSpeed);
+
+                actor.Steer(newVelocity);
             }
             catch (Exception exception)
             {
