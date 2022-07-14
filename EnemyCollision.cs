@@ -7,11 +7,22 @@ namespace
 {
     public class EnemyCollision
     {
-        private bool CheckCollisionWithEnemy(List<Actor> enemies, scene.GetAllActors("enemy")
+        
+        public void CollideEnemies(Scene scene)
         {
-            foreach (Enemies )
+            foreach (Actor enemy in scene.GetAllActors("enemies"))
             {
-                if (.Overlaps())
+                if (actor.Overlaps(enemy))
+                return true; // Tell it to randomly move to a location on the screen.
+            }
+        }
+        
+        
+        private bool CheckCollision(List<Actor> actors, Actor actor)
+        {
+            foreach (Actor item in actors)
+            {
+                if (actor.Overlaps(item))
                 return true;
             }
             return false;
