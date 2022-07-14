@@ -41,17 +41,32 @@ namespace Final.Project
             filePaths[4] = "Assets/robot5.png";
             filePaths[5] = "Assets/robot6.png";
             Image actor = new Image();
-            actor.SizeTo(60, 60);
+            actor.SizeTo(80, 80);
             actor.MoveTo(270, 190);
             actor.Display("Assets/robot0.png");
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
 
             
             // Our Goal
-            Actor enemy = new Actor();
-            enemy.SizeTo(100, 100);
-            enemy.MoveTo(980, 100);
-            enemy.Tint(Color.Red());
+            float durationInSecondsEne = 1.2f;
+            int framesPerSecondEne = 60;
+            string [] filePathsEne = new string[12];
+            filePathsEne[0] = "Assets/B Flame 1.png";
+            filePathsEne[1] = "Assets/B Flame 2.png";
+            filePathsEne[2] = "Assets/B Flame 3.png";
+            filePathsEne[3] = "Assets/B Flame 4.png";
+            filePathsEne[4] = "Assets/B Flame 5.png";
+            filePathsEne[5] = "Assets/B Flame 6.png";
+            filePathsEne[6] = "Assets/B Flame 7.png";
+            filePathsEne[7] = "Assets/B Flame 8.png";
+            filePathsEne[8] = "Assets/B Flame 9.png";
+            filePathsEne[9] = "Assets/B Flame 10.png";
+            filePathsEne[10] = "Assets/B Flame 11.png";
+            filePathsEne[11] = "Assets/B Flame 12.png";
+            Image enemy = new Image();
+            enemy.SizeTo(150, 150);
+            enemy.MoveTo(1080, 40);
+            enemy.Animate(filePathsEne,durationInSecondsEne,framesPerSecondEne);
 
             Actor screen = new Actor();
             screen.SizeTo(1280, 720);
