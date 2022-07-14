@@ -31,19 +31,23 @@ namespace Final.Project
             label.Display("'w', 's', 'a', 'd' to move");
             label.MoveTo(25, 25);
             //Our Hero
-            float durationInSeconds = 0.3f;
+            float durationInSeconds = 0.4f;
             int framesPerSecond = 60;
-            string[] filePaths = new string[6];
-            filePaths[0] = "Assets/robot1.png";
-            filePaths[1] = "Assets/robot2.png";
-            filePaths[2] = "Assets/robot3.png";
-            filePaths[3] = "Assets/robot4.png";
-            filePaths[4] = "Assets/robot5.png";
-            filePaths[5] = "Assets/robot6.png";
+            string[] filePaths = new string[10];
+            filePaths[0] = "Assets/idle (1).png";
+            filePaths[1] = "Assets/idle (2).png";
+            filePaths[2] = "Assets/idle (3).png";
+            filePaths[3] = "Assets/idle (4).png";
+            filePaths[4] = "Assets/idle (5).png";
+            filePaths[5] = "Assets/idle (6).png";
+            filePaths[6] = "Assets/idle (7).png";
+            filePaths[7] = "Assets/idle (8).png";
+            filePaths[8] = "Assets/idle (9).png";
+            filePaths[9] = "Assets/idle (10).png";
+
             Image actor = new Image();
-            actor.SizeTo(80, 80);
+            actor.SizeTo(130, 127);
             actor.MoveTo(270, 190);
-            actor.Display("Assets/robot0.png");
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
 
             
