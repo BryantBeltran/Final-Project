@@ -90,30 +90,11 @@ namespace Final.Project
 
                 }
 
-                if (_keyboardService.IsKeyReleased(KeyboardKey.Space) && actor.isGrounded)
-                {      
-                    directionY += -22;
-                    actor.isGrounded = false;
-                    // string bounceSound = _settingsService.GetString("bounceSound");
-                    // _audioService.PlaySound(bounceSound);        
-                       float durationInSeconds = 3.0f;
-                    int framesPerSecond = 60;
-                    string[] filePathsJump = new string[10];
-                    filePathsJump[0] = "Assets/Jump (1).png";
-                    filePathsJump[1] = "Assets/Jump (2).png";
-                    filePathsJump[2] = "Assets/Jump (3).png";
-                    filePathsJump[3] = "Assets/Jump (4).png";
-                    filePathsJump[4] = "Assets/Jump (5).png";
-                    filePathsJump[5] = "Assets/Jump (6).png";
-                    filePathsJump[6] = "Assets/Jump (7).png";
-                    filePathsJump[7] = "Assets/Jump (8).png";
-                    filePathsJump[8] = "Assets/Jump (9).png";
-                    filePathsJump[9] = "Assets/Jump (10).png";
-                    actor.Animate(filePathsJump,durationInSeconds,framesPerSecond);
-
-                }
-                if (_keyboardService.IsKeyUp(KeyboardKey.Space)) {
-                                        float durationInSeconds = 0.4f;
+                if (_keyboardService.IsKeyReleased(KeyboardKey.Space)) {
+                    float starttime = deltaTime;
+                    float finishtime = starttime + 10;
+                    if (finishtime == deltaTime){
+                    float durationInSeconds = 0.4f;
                     int framesPerSecond = 60;
                     string[] filePaths = new string[10];
             filePaths[0] = "Assets/idle (1).png";
@@ -128,7 +109,7 @@ namespace Final.Project
             filePaths[9] = "Assets/idle (10).png";
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
                 }
-
+                }
                 //add gravity
                 {
                     directionY += gravity;
