@@ -97,6 +97,7 @@ namespace Final.Project
 
             while (move != 0)
             {
+                actor.isGrounded = false;
                  
                 if (!CheckCollision(solids, actor, actor.GetPosition() + new Vector2 (0, sign)))
                 {
