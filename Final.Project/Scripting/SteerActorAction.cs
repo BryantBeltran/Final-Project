@@ -91,9 +91,9 @@ namespace Final.Project
                 }
 
                 if (_keyboardService.IsKeyReleased(KeyboardKey.Space)) {
-                    float starttime = deltaTime;
-                    float finishtime = starttime + 10;
-                    if (finishtime == deltaTime){
+                    // float starttime = deltaTime;
+                    // float finishtime = starttime + 10;
+                    // if (finishtime == deltaTime){
                     float durationInSeconds = 0.4f;
                     int framesPerSecond = 60;
                     string[] filePaths = new string[10];
@@ -108,7 +108,7 @@ namespace Final.Project
             filePaths[8] = "Assets/idle (9).png";
             filePaths[9] = "Assets/idle (10).png";
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
-                }
+                // }
                 }
                 //add gravity
                 {
