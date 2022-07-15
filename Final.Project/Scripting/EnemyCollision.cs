@@ -23,11 +23,14 @@ namespace Final.Project
         {
             try
             {
+                Random rnd = new Random();
+                int numx = rnd.Next(100, 600);
+                int numy = rnd.Next(50, 1200);
                 Actor actor = scene.GetFirstActor("actors");
                 foreach (Actor enemy in scene.GetAllActors("enemies"))
                 {
                     if (actor.Overlaps(enemy))
-                    enemy.MoveTo(100, 100); // Tell it to randomly move to a location on the screen.
+                    enemy.MoveTo(numy, numx); // Tell it to randomly move to a location on the screen.
                 }
         
                 
