@@ -31,7 +31,8 @@ namespace Final.Project
             try
             {
 
-                Actor actor = scene.GetFirstActor("actors");
+                Image actor = (Image)scene.GetFirstActor("actors");
+                Vector2 current_velocity = actor.GetVelocity();
 
                 int maxSpeed = 10;
                 int gravity = 1;
@@ -50,6 +51,7 @@ namespace Final.Project
                 {
                     directionY += 1;
                 }
+                
 
                 // determine horizontal or x-axis direction
                 if (_keyboardService.IsKeyDown(KeyboardKey.A))
@@ -60,16 +62,54 @@ namespace Final.Project
                 {
                     directionX += 1;
                 }
+                else if (current_velocity.X != 0)
+                {
+                    directionX -= Math.Sign(current_velocity.X);
+                }
 
                 if (_keyboardService.IsKeyDown(KeyboardKey.Space) && actor.isGrounded)
-                {
-                    directionY += -20;
+                {      
+                    directionY += -22;
                     actor.isGrounded = false;
                     // string bounceSound = _settingsService.GetString("bounceSound");
-                    // _audioService.PlaySound(bounceSound);
+                    // _audioService.PlaySound(bounceSound);        
+                       float durationInSeconds = 0.2f;
+                    int framesPerSecond = 60;
+                    string[] filePathsJump = new string[10];
+                    filePathsJump[0] = "Assets/Jump (1).png";
+                    filePathsJump[1] = "Assets/Jump (2).png";
+                    filePathsJump[2] = "Assets/Jump (3).png";
+                    filePathsJump[3] = "Assets/Jump (4).png";
+                    filePathsJump[4] = "Assets/Jump (5).png";
+                    filePathsJump[5] = "Assets/Jump (6).png";
+                    filePathsJump[6] = "Assets/Jump (7).png";
+                    filePathsJump[7] = "Assets/Jump (8).png";
+                    filePathsJump[8] = "Assets/Jump (9).png";
+                    filePathsJump[9] = "Assets/Jump (10).png";
+                    actor.Animate(filePathsJump,durationInSeconds,framesPerSecond);
 
                 }
 
+                if (_keyboardService.IsKeyReleased(KeyboardKey.Space)) {
+                    float starttime = deltaTime;
+                    float finishtime = starttime + 10;
+                    if (finishtime == deltaTime){
+                    float durationInSeconds = 0.4f;
+                    int framesPerSecond = 60;
+                    string[] filePaths = new string[10];
+            filePaths[0] = "Assets/idle (1).png";
+            filePaths[1] = "Assets/idle (2).png";
+            filePaths[2] = "Assets/idle (3).png";
+            filePaths[3] = "Assets/idle (4).png";
+            filePaths[4] = "Assets/idle (5).png";
+            filePaths[5] = "Assets/idle (6).png";
+            filePaths[6] = "Assets/idle (7).png";
+            filePaths[7] = "Assets/idle (8).png";
+            filePaths[8] = "Assets/idle (9).png";
+            filePaths[9] = "Assets/idle (10).png";
+            actor.Animate(filePaths,durationInSeconds,framesPerSecond);
+                }
+                }
                 //add gravity
                 {
                     directionY += gravity;
@@ -78,7 +118,7 @@ namespace Final.Project
                 // steer the actor in the desired direction
                 
                 
-                Vector2 newVelocity = actor.GetVelocity() + new Vector2(directionX, directionY);
+                Vector2 newVelocity = current_velocity + new Vector2(directionX, directionY);
                 newVelocity.X = Math.Clamp(newVelocity.X,  -maxSpeed, maxSpeed);
 
                 actor.Steer(newVelocity);

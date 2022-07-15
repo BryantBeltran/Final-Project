@@ -29,7 +29,6 @@ namespace Final.Project
             // Instantiate the actors that are used in this example.
             Label label = new Label();
             label.Display("'a', 'd' to move 'space' jump");
-
             label.MoveTo(25, 25);
             //Our Hero
             float durationInSeconds = 0.4f;
@@ -50,6 +49,8 @@ namespace Final.Project
             actor.SizeTo(66, 109);
             actor.MoveTo(270, 120);
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
+
+            
 
             
             // Our Goal

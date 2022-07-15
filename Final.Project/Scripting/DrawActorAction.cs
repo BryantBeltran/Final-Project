@@ -26,7 +26,7 @@ namespace Final.Project
                 Image backg = (Image) scene.GetFirstActor("background");
                 Label label = (Label) scene.GetFirstActor("labels");
                 Image actor = (Image) scene.GetFirstActor("actors");
-                Image enemy = (Image) scene.GetFirstActor("enemy");
+                Image enemy = (Image) scene.GetFirstActor("enemies");
                 Actor ground = scene.GetFirstActor("ground");
                 List <Image> platforms = scene.GetAllActors<Image>("platforms");
                 
