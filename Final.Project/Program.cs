@@ -114,7 +114,7 @@ namespace Final.Project
             // Instantiate the actions that use the actors.
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
-            // EnemyCollision enemyCollision = new EnemyCollision(serviceFactory);
+            EnemyCollision enemyCollision = new EnemyCollision(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
             PlayMusicAction playMusicAction = new PlayMusicAction(serviceFactory);
 
@@ -137,7 +137,7 @@ namespace Final.Project
 
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
-            // scene.AddAction(phase.Update,);
+            scene.AddAction(Phase.Update, enemyCollision);
             scene.AddAction(Phase.Output, drawActorAction);
             scene.AddAction(Phase.Output, playMusicAction);
             
