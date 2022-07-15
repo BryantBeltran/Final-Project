@@ -33,20 +33,19 @@ namespace Final.Project
             //Our Hero
             float durationInSeconds = 0.4f;
             int framesPerSecond = 60;
-            string[] filePaths = new string[10];
+            string[] filePaths = new string[8];
             filePaths[0] = "Assets/idle (1).png";
             filePaths[1] = "Assets/idle (2).png";
             filePaths[2] = "Assets/idle (3).png";
             filePaths[3] = "Assets/idle (4).png";
-            filePaths[4] = "Assets/idle (5).png";
-            filePaths[5] = "Assets/idle (6).png";
-            filePaths[6] = "Assets/idle (7).png";
-            filePaths[7] = "Assets/idle (8).png";
-            filePaths[8] = "Assets/idle (9).png";
-            filePaths[9] = "Assets/idle (10).png";
+            filePaths[4] = "Assets/idle (1).png";
+            filePaths[5] = "Assets/idle (2).png";
+            filePaths[6] = "Assets/idle (3).png";
+            filePaths[7] = "Assets/idle (4).png";
+
 
             Image actor = new Image();
-            actor.SizeTo(66, 109);
+            actor.SizeTo(60, 90);
             actor.MoveTo(270, 120);
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
 
