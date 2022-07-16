@@ -29,23 +29,18 @@ namespace Final.Project
                 Image enemy = (Image) scene.GetFirstActor("enemies");
                 Actor ground = scene.GetFirstActor("ground");
                 List <Image> platforms = scene.GetAllActors<Image>("platforms");
+                List <Actor> fireballs = scene.GetAllActors<Actor>("fireballs");
                 
 
                 
                 // draw the actors on the screen using the video service
                 _videoService.ClearBuffer();
- 
                 _videoService.Draw(backg);
                 _videoService.Draw(label);
                 _videoService.Draw(actor);
-                _videoService.Draw(enemy);
                 _videoService.Draw(platforms);
-
-
-
-                
-
-                
+                _videoService.Draw(enemy);
+                _videoService.Draw(fireballs);
                 _videoService.FlushBuffer();
             }
             catch (Exception exception)
