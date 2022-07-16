@@ -50,7 +50,7 @@ namespace Final.Project
 
             int enemyx = 1080;
             int enemyy = 40;
-            int fireballSize = 50;
+            // int fireballSize = 50;
             // Our Goal
             float durationInSecondsEne = 1.2f;
             int framesPerSecondEne = 60;
@@ -105,18 +105,18 @@ namespace Final.Project
             topBorder.MoveTo(0, 0);
             topBorder.Tint(Color.Red());
             //Fireballs
-            Actor Fb1 = new Actor();
-            Fb1.SizeTo(fireballSize,fireballSize);
-            Fb1.MoveTo(enemyx + 20, enemyy- 20);
-            Fb1.Tint(Color.Red());
-            Actor Fb2 = new Actor();
-            Fb2.SizeTo(fireballSize,fireballSize);
-            Fb2.MoveTo(enemyx - 40, enemyy + 40);
-            Fb2.Tint(Color.Red());
-            Actor Fb3 = new Actor();
-            Fb3.SizeTo(fireballSize,fireballSize);
-            Fb3.MoveTo(enemyx - 100, enemyy + 100);
-            Fb3.Tint(Color.Red());
+            // Actor Fb1 = new Actor();
+            // Fb1.SizeTo(fireballSize,fireballSize);
+            // Fb1.MoveTo(enemyx + 20, enemyy- 20);
+            // Fb1.Tint(Color.Red());
+            // Actor Fb2 = new Actor();
+            // Fb2.SizeTo(fireballSize,fireballSize);
+            // Fb2.MoveTo(enemyx - 40, enemyy + 40);
+            // Fb2.Tint(Color.Red());
+            // Actor Fb3 = new Actor();
+            // Fb3.SizeTo(fireballSize,fireballSize);
+            // Fb3.MoveTo(enemyx - 100, enemyy + 100);
+            // Fb3.Tint(Color.Red());
 
 
 
@@ -124,6 +124,7 @@ namespace Final.Project
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
             EnemyCollision enemyCollision = new EnemyCollision(serviceFactory);
+            ShootFireballsAction shootFireballs = new ShootFireballsAction(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
             PlayMusicAction playMusicAction = new PlayMusicAction(serviceFactory);
 
@@ -141,9 +142,9 @@ namespace Final.Project
             scene.AddActor("platforms",rBorder);
             scene.AddActor("platforms",topBorder);
             scene.AddActor("labels", label);
-            scene.AddActor("fireballs", Fb1);
-            scene.AddActor("fireballs", Fb2);
-            scene.AddActor("fireballs", Fb3);
+            // scene.AddActor("fireballs", Fb1);
+            // scene.AddActor("fireballs", Fb2);
+            // scene.AddActor("fireballs", Fb3);
             
 
             
@@ -151,6 +152,7 @@ namespace Final.Project
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Update, enemyCollision);
+            scene.AddAction(Phase.Update, shootFireballs);
             scene.AddAction(Phase.Output, drawActorAction);
             scene.AddAction(Phase.Output, playMusicAction);
             

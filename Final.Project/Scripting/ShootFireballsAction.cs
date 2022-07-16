@@ -17,6 +17,8 @@ namespace Final.Project
         private IAudioService _audioService;
         private ISettingsService _settingsService;
 
+        private int fireballSize = 50;
+
         private int numFramesElapsed = 0;
         
 
@@ -35,24 +37,41 @@ namespace Final.Project
             {
                 // get the actors from the scene
                 string bounceSound = _settingsService.GetString("bounceSound");
-                Actor actor = scene.GetFirstActor("actors");
-                Actor enemy = scene.GetFirstActor("enemy");
+                Image actor = (Image)scene.GetFirstActor("actors");
+                Image enemy = (Image )scene.GetFirstActor("enemies");
                 Actor screen = scene.GetFirstActor("screen");
                 List<Actor> fireballs = scene.GetAllActors("fireballs");
-
+                
+                // Get Enemy's and Actor's Position
+                Vector2 enemyPosition = enemy.GetPosition();
+                Vector2 actorPosition = actor.GetPosition();
+             
                 numFramesElapsed++;
 
-                // 1. if there are less than 4 fireballs in the cast, do the following:
-                //    a. if numFramesElapsed = 30, 
-                //    a.     reset numFramesElapsed = 0
-                //    a.     Determine the direction of the fireball using actors and enemy's position
-                //    b.     Create the fireball 
-                //    c.     Add to Cast in the FB's group
+                // 1. if there are less than 3 fireballs in the cast, do the following:
+                if (fireballs.Count() < 3) {
 
+                     //a. if numFramesElapsed = 90,
+                    if (numFramesElapsed == 90 ){
+                        //    b.     reset numFramesElapsed = 0
+                        numFramesElapsed = 0;
+                         //    c.     Create the fireball 
+                        Actor fireball = new Actor();
+                        fireball.SizeTo(fireballSize, fireballSize);
+                        fireball.MoveTo(enemyPosition.X, enemyPosition.Y);
+                        fireball.Tint(Color.Red());
+                         //    c.     Add to Cast in the FB's group
+                        scene.AddActor("fireballs", fireball);
+                        //    c.     Determine the direction of the fireball using actors and enemy's position
+
+ 
+                    }
+                }
+                
                 // 2. Loop through all and tell them to move and BounceIn(screen)
                 //    a. for example, bool hasBounced = fireball.BounceIn(screen)
-                //    b. if the fireball has bounced 2 times, remove it from the cast
-            
+                //    b. if the fireball has bounced 3 times, remove it from the cast
+               
 
             }
             catch (Exception exception)
