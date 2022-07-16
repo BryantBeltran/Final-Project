@@ -87,6 +87,8 @@ namespace Final.Project
                     filePathsJump[8] = "Assets/Jump (9).png";
                     filePathsJump[9] = "Assets/Jump (10).png";
                     actor.Animate(filePathsJump,durationInSeconds,framesPerSecond);
+                    string bounceSound = _settingsService.GetString("bounceSound");
+                    _audioService.PlaySound(bounceSound);
 
                 }
 

@@ -31,6 +31,8 @@ namespace Final.Project
             label.Display("'a', 'd' to move 'space' jump");
             label.MoveTo(25, 25);
             //Our Hero
+
+            
             float durationInSeconds = 0.4f;
             int framesPerSecond = 60;
             string[] filePaths = new string[10];
