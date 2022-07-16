@@ -57,10 +57,24 @@ namespace Final.Project
                 if (_keyboardService.IsKeyDown(KeyboardKey.A))
                 {
                     directionX += -1;
+                    int framesPerSecond = 60;
+                    float durationInSeconds = 0.2f;
+                    string[] filePathsWalkL = new string[3];
+                    filePathsWalkL[0] = "Assets/JumpL (1).png";
+                    filePathsWalkL[1] = "Assets/JumpL (2).png";
+                    filePathsWalkL[2] = "Assets/JumpL (3).png";
+                    actor.Animate(filePathsWalkL,durationInSeconds,framesPerSecond);
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.D))
                 {
                     directionX += 1;
+                    int framesPerSecond = 60;
+                    float durationInSeconds = 0.2f;
+                    string[] filePathsWalkR = new string[3];
+                    filePathsWalkR[0] = "Assets/Jump (1).png";
+                    filePathsWalkR[1] = "Assets/Jump (2).png";
+                    filePathsWalkR[2] = "Assets/Jump (3).png";
+                    actor.Animate(filePathsWalkR,durationInSeconds,framesPerSecond);
                 }
                 else if (current_velocity.X != 0)
                 {
@@ -75,38 +89,46 @@ namespace Final.Project
                     // _audioService.PlaySound(bounceSound);        
                        float durationInSeconds = 0.2f;
                     int framesPerSecond = 60;
-                    string[] filePathsJump = new string[10];
+                    string[] filePathsJump = new string[3];
                     filePathsJump[0] = "Assets/Jump (1).png";
                     filePathsJump[1] = "Assets/Jump (2).png";
                     filePathsJump[2] = "Assets/Jump (3).png";
-                    filePathsJump[3] = "Assets/Jump (2).png";
-                    filePathsJump[4] = "Assets/Jump (3).png";
-                    filePathsJump[5] = "Assets/Jump (2).png";
-                    filePathsJump[6] = "Assets/Jump (3).png";
-                    filePathsJump[7] = "Assets/Jump (2).png";
-                    filePathsJump[8] = "Assets/Jump (3).png";
-                    filePathsJump[9] = "Assets/Jump (2).png";
                     actor.Animate(filePathsJump,durationInSeconds,framesPerSecond);
+                    string bounceSound = _settingsService.GetString("bounceSound");
+                    _audioService.PlaySound(bounceSound);
 
                 }
 
                 if (_keyboardService.IsKeyReleased(KeyboardKey.Space)) {
-                    // float starttime = deltaTime;
-                    // float finishtime = starttime + 10;
-                    // if (finishtime == deltaTime){
                     float durationInSeconds = 0.4f;
                     int framesPerSecond = 60;
-            string[] filePaths = new string[8];
+            string[] filePaths = new string[4];
             filePaths[0] = "Assets/idle (1).png";
             filePaths[1] = "Assets/idle (2).png";
             filePaths[2] = "Assets/idle (3).png";
             filePaths[3] = "Assets/idle (4).png";
-            filePaths[4] = "Assets/idle (1).png";
-            filePaths[5] = "Assets/idle (2).png";
-            filePaths[6] = "Assets/idle (3).png";
-            filePaths[7] = "Assets/idle (4).png";
             actor.Animate(filePaths,durationInSeconds,framesPerSecond);
-                // }
+                }
+                 if (_keyboardService.IsKeyReleased(KeyboardKey.D)) {
+                    float durationInSeconds = 0.4f;
+                    int framesPerSecond = 60;
+            string[] filePaths = new string[4];
+            filePaths[0] = "Assets/idle (1).png";
+            filePaths[1] = "Assets/idle (2).png";
+            filePaths[2] = "Assets/idle (3).png";
+            filePaths[3] = "Assets/idle (4).png";
+            actor.Animate(filePaths,durationInSeconds,framesPerSecond);
+                }
+
+                 if (_keyboardService.IsKeyReleased(KeyboardKey.A)) {
+                    float durationInSeconds = 0.4f;
+                    int framesPerSecond = 60;
+            string[] filePaths = new string[4];
+            filePaths[0] = "Assets/idle (1).png";
+            filePaths[1] = "Assets/idle (2).png";
+            filePaths[2] = "Assets/idle (3).png";
+            filePaths[3] = "Assets/idle (4).png";
+            actor.Animate(filePaths,durationInSeconds,framesPerSecond);
                 }
                 //add gravity
                 {

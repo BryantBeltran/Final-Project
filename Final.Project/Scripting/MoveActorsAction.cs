@@ -68,7 +68,7 @@ namespace Final.Project
             int move = Convert.ToInt32(Math.Round(change.X));
 
             int sign = Math.Sign(move);
-
+            
             while (move != 0)
             {
                 if (!CheckCollision(solids, actor, actor.GetPosition() + new Vector2 (sign, 0)))
@@ -81,8 +81,9 @@ namespace Final.Project
                 {
                    
                     actor.Steer(0, change.Y);
-                    string bounceSound = _settingsService.GetString("bounceSound");
-                    _audioService.PlaySound(bounceSound);
+                    
+                    
+                
                     break;
                 }
             }
@@ -94,10 +95,11 @@ namespace Final.Project
 
             int sign = Math.Sign(move);
             
-
+            
             while (move != 0)
             {
                 actor.isGrounded = false;
+                
                  
                 if (!CheckCollision(solids, actor, actor.GetPosition() + new Vector2 (0, sign)))
                 {
@@ -110,7 +112,13 @@ namespace Final.Project
                     if (sign > 0)
                     {
                         actor.isGrounded = true;
+                        
                     }
+                   
+
+                   
+                    
+                    
                     
                     actor.Steer(change.X, 0);
                     

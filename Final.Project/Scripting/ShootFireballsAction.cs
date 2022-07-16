@@ -42,7 +42,7 @@ namespace Final.Project
 
                 numFramesElapsed++;
 
-                // 1. if there aren't three fireballs in the cast, do the following:
+                // 1. if there are less than 4 fireballs in the cast, do the following:
                 //    a. if numFramesElapsed = 30, 
                 //    a.     reset numFramesElapsed = 0
                 //    a.     Determine the direction of the fireball using actors and enemy's position
@@ -51,7 +51,7 @@ namespace Final.Project
 
                 // 2. Loop through all and tell them to move and BounceIn(screen)
                 //    a. for example, bool hasBounced = fireball.BounceIn(screen)
-                //    b. if the fireball has bounced three times, remove it from the cast
+                //    b. if the fireball has bounced 2 times, remove it from the cast
             
 
             }
