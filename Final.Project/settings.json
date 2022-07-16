@@ -4,5 +4,6 @@
   "screenWidth": 1280,
   "screenHeight": 720,
   "backgroundMusic": "Services/Music/battleMusic.mp3",
-  "bounceSound": "Services/Music/Bounce.mp3"
+  "bounceSound": "Services/Music/Bounce.mp3",
+  "fireballSound": "Services/Music/Fireball.mp3"
 }

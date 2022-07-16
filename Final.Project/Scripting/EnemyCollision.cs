@@ -32,18 +32,22 @@ namespace Final.Project
                 Image actor = (Image) scene.GetFirstActor("actors");
                 foreach (Actor enemy in scene.GetAllActors("enemies"))
                 {
-                    if (actor.Overlaps(enemy)){
+                    if (actor.Overlaps(enemy))
+                    {
                     enemy.MoveTo(numy, numx); 
                     // Tell it to randomly move to a location on the screen.
+                    }
                 }
-                }
-                foreach (Actor fireball in scene.GetAllActors("fireballs")){
-                    if (actor.Overlaps(fireball)){
+                foreach (Actor fireball in scene.GetAllActors("fireballs"))
+                {
+                    if (actor.Overlaps(fireball))
+                    { 
                     ; 
-                }
+                    }
                 
 
-            }}
+                }
+            }
             catch (Exception exception)
             {
                 callback.OnError("Couldn't move actor.", exception);

@@ -33,13 +33,19 @@ namespace Final.Project
             {
                 // get the actors from the scene
                 string bounceSound = _settingsService.GetString("bounceSound");
-                Actor actor = scene.GetFirstActor("actors");
+                Actor player = scene.GetFirstActor("actors");
                 Actor screen = scene.GetFirstActor("screen");
+                List<Actor> fireballs = scene.GetAllActors("fireballs");
                 
                 // move the actor and restrict it to the screen boundaries
                 // actor.Move(20); // use a constant pull of 5 in the downward direction
-                actor.ClampTo(screen); // keep actor inside screen.
-                MovePlayer(actor, scene);
+                player.ClampTo(screen); // keep actor inside screen.
+                MovePlayer(player, scene);
+
+                foreach (Actor fireball in fireballs)
+                {
+                    fireball.Move();
+                }
                 
 
             }

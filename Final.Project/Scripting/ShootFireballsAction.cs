@@ -20,6 +20,8 @@ namespace Final.Project
         private int fireballSize = 50;
 
         private int numFramesElapsed = 0;
+
+        private int deletionFrames = 0;
         
 
         public ShootFireballsAction(IServiceFactory serviceFactory)
@@ -41,7 +43,6 @@ namespace Final.Project
                 Image enemy = (Image )scene.GetFirstActor("enemies");
                 Actor screen = scene.GetFirstActor("screen");
                 List<Actor> fireballs = scene.GetAllActors("fireballs");
-                
                 // Get Enemy's and Actor's Position
                 Vector2 enemyPosition = enemy.GetPosition();
                 Vector2 actorPosition = actor.GetPosition();
@@ -49,16 +50,19 @@ namespace Final.Project
                 numFramesElapsed++;
 
                 // 1. if there are less than 3 fireballs in the cast, do the following:
-                if (fireballs.Count() < 3) {
+                if (fireballs.Count() < 3) 
+                {
 
                      //a. if numFramesElapsed = 90,
-                    if (numFramesElapsed == 90 ){
+                    if (numFramesElapsed == 90 )
+                    {
                         //    b.     reset numFramesElapsed = 0
                         numFramesElapsed = 0;
                          //    c.     Create the fireball 
                         Actor fireball = new Actor();
                         fireball.SizeTo(fireballSize, fireballSize);
                         fireball.MoveTo(enemyPosition.X, enemyPosition.Y);
+                        fireball.Steer(-1, 1);
                         fireball.Tint(Color.Red());
                          //    c.     Add to Cast in the FB's group
                         scene.AddActor("fireballs", fireball);
@@ -69,11 +73,20 @@ namespace Final.Project
                 }
                 
                 // 2. Loop through all and tell them to move and BounceIn(screen)
-                //    a. for example, bool hasBounced = fireball.BounceIn(screen)
-                //    b. if the fireball has bounced 3 times, remove it from the cast
+                
+                deletionFrames ++;
+                    // string fireballSound = _settingsService.GetString("fireballSound");
+                    // _audioService.PlaySound(fireballSound);
+                if (deletionFrames >= 300)
+                {
+                        Actor fireball = scene.GetFirstActor("fireballs");
+                        scene.RemoveActor("fireballs", fireball);
+                        deletionFrames = 0;
+                }
+            }
+
                
 
-            }
             catch (Exception exception)
             {
                 callback.OnError("Couldn't move actor.", exception);
