@@ -43,11 +43,11 @@ namespace Final.Project
                 int directionY = 0;
 
                 // determine vertical or y-axis direction
-                if (_keyboardService.IsKeyDown(KeyboardKey.W))
-                {
-                    directionY += -1;
-                }
-                else if (_keyboardService.IsKeyDown(KeyboardKey.S))
+                // if (_keyboardService.IsKeyDown(KeyboardKey.W))
+                // {
+                //     directionY += -1;
+                // }
+                if (_keyboardService.IsKeyDown(KeyboardKey.S))
                 {
                     directionY += 1;
                 }
@@ -87,13 +87,13 @@ namespace Final.Project
                     actor.isGrounded = false;
                     // string bounceSound = _settingsService.GetString("bounceSound");
                     // _audioService.PlaySound(bounceSound);        
-                       float durationInSeconds = 0.2f;
+                    float durationInSeconds = 0.2f;
                     int framesPerSecond = 60;
                     string[] filePathsJump = new string[3];
                     filePathsJump[0] = "Assets/Jump (1).png";
                     filePathsJump[1] = "Assets/Jump (2).png";
                     filePathsJump[2] = "Assets/Jump (3).png";
-                    actor.Animate(filePathsJump,durationInSeconds,framesPerSecond);
+                    actor.Animate(filePathsJump,durationInSeconds,framesPerSecond, false);
                     string bounceSound = _settingsService.GetString("bounceSound");
                     _audioService.PlaySound(bounceSound);
 
