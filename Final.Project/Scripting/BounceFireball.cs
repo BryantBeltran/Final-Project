@@ -13,46 +13,40 @@ namespace Final.Project
     /// </summary>
     public class BounceFireball : Byui.Games.Scripting.Action
     {
-        Image actor = (Image)scene.GetFirstActor("actors");
-        Image fireballs = (Image )scene.GetFirstActor("enemies");
-        Actor screen = scene.GetFirstActor("screen");
-        List<Actor> fireballs = scene.GetAllActors("fireballs");
-    }
+        
+    
 
 
-    public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
-        {  
+        public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
+            {  
+                Image actor = (Image)scene.GetFirstActor("actors");
+                Actor screen = scene.GetFirstActor("screen");
+                List<Actor> fireballs = scene.GetAllActors("fireballs");
+                List<Actor> platforms = scene.GetAllActors("platforms");
 
-            try
-            {
-                Random rnd = new Random();
-                int numx = rnd.Next(100, 600);
-                int numy = rnd.Next(50, 1200);
-                // Actor actor = scene.GetFirstActor("actors");
-                Image actor = (Image) scene.GetFirstActor("actors");
-                foreach (Actor fireball in scene.GetAllActors("fireballs"))
+
+                try
                 {
-                    if (actor.Overlaps(fireball))
+                    Random rnd = new Random();
+                    int numx = rnd.Next(100, 600);
+                    int numy = rnd.Next(50, 1200);
+                    // Actor actor = scene.GetFirstActor("actors");
+                    foreach (Actor fireball in fireballs)
                     {
-                    fireball.MoveTo(numy, numx); 
-                    ShootFireballsAction.FireRate =ShootFireballsAction.FireRate - 10;
-                    ShootFireballsAction.numFireballs = ShootFireballsAction.numFireballs + 1;
-                    // Tell it to randomly move to a location on the screen.
+                        foreach (Actor platform in platforms)
+                        {
+                            if (fireball.Overlaps(platform))
+                            {
+                                
+                            
+                            }
+                        }
                     }
                 }
-                foreach (Actor fireball in scene.GetAllActors("fireballs"))
+                catch (Exception exception)
                 {
-                    if (actor.Overlaps(fireball))
-                    { 
-                        callback.OnStop();
-                    }
-                
-
+                    callback.OnError("Couldn't move actor.", exception);
                 }
             }
-            catch (Exception exception)
-            {
-                callback.OnError("Couldn't move actor.", exception);
-            }
-        }
+    }
 }
