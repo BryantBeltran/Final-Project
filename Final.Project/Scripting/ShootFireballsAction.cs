@@ -54,7 +54,7 @@ namespace Final.Project
                 Vector2 target = (actorPosition - enemyPosition);
                 Vector2 aim = Vector2.Normalize(target);
 
-                float fireSpeed = 2;
+                float fireSpeed = 4;
                 
              
                 numFramesElapsed++;
