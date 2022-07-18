@@ -21,6 +21,8 @@ namespace Final.Project
 
         private int numFramesElapsed = 0;
         public static int FireRate = 90;
+        
+        public static int numFireballsFramesIncrease = 0;
 
         private int deletionFrames = 0;
         public static int numFireballs = 2;
