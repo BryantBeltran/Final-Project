@@ -27,10 +27,6 @@ namespace Final.Project
 
                 try
                 {
-                    Random rnd = new Random();
-                    int numx = rnd.Next(100, 600);
-                    int numy = rnd.Next(50, 1200);
-                    // Actor actor = scene.GetFirstActor("actors");
                     foreach (Actor fireball in fireballs)
                     {
                         foreach (Actor platform in platforms)
