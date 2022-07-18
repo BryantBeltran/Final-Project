@@ -13,7 +13,6 @@ namespace Byui.Games.Casting
         private Vector2 _position = Vector2.Zero;
         private float _rotation = 0f;
         private float _scale = 1f;
-        public int _frames = 300;
         private Vector2 _size = Vector2.Zero;
         private Color _tint = Color.White();
         private Vector2 _velocity = Vector2.Zero;

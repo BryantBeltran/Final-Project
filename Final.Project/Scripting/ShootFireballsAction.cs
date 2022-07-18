@@ -61,7 +61,7 @@ namespace Final.Project
                          //    c.     Create the fireball 
                         Actor fireball = new Actor();
                         fireball.SizeTo(fireballSize, fireballSize);
-                        fireball.MoveTo(enemyPosition.X, enemyPosition.Y);
+                        fireball.MoveTo(enemyPosition.X+10, enemyPosition.Y+50);
                         fireball.Steer(-1, 1);
                         fireball.Tint(Color.Red());
                          //    c.     Add to Cast in the FB's group
