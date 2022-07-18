@@ -54,7 +54,7 @@ namespace Final.Project
                 {
 
                      //a. if numFramesElapsed = 90,
-                    if (numFramesElapsed == 90 )
+                    if (numFramesElapsed >= 90 )
                     {
                         //    b.     reset numFramesElapsed = 0
                         numFramesElapsed = 0;

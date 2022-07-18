@@ -42,7 +42,7 @@ namespace Final.Project
                 {
                     if (actor.Overlaps(fireball))
                     { 
-                    ; 
+                        callback.OnStop();
                     }
                 
 
