@@ -51,10 +51,11 @@ namespace Final.Project
                 // Get Enemy's and Actor's Position
                 Vector2 enemyPosition = enemy.GetCenter();
                 Vector2 actorPosition = actor.GetPosition();
+                Vector2 target = (actorPosition - enemyPosition);
+                Vector2 aim = Vector2.Normalize(target);
 
                 float fireSpeed = 2;
-                float aimX = Math.Sign(actorPosition.X - enemyPosition.X) * fireSpeed;
-                float aimY = Math.Sign(actorPosition.Y - enemyPosition.Y) * fireSpeed;
+                
              
                 numFramesElapsed++;
 
@@ -71,7 +72,7 @@ namespace Final.Project
                         Actor fireball = new Actor();
                         fireball.SizeTo(fireballSize, fireballSize);
                         fireball.MoveTo(enemyPosition.X, enemyPosition.Y);
-                        fireball.Steer(aimX, aimY);
+                        fireball.Steer(aim * fireSpeed);
                         fireball.Tint(Color.Red());
                          //    c.     Add to Cast in the FB's group
                         scene.AddActor("fireballs", fireball);
