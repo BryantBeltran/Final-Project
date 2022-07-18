@@ -45,9 +45,14 @@ namespace Final.Project
                 Image enemy = (Image )scene.GetFirstActor("enemies");
                 Actor screen = scene.GetFirstActor("screen");
                 List<Actor> fireballs = scene.GetAllActors("fireballs");
+                
                 // Get Enemy's and Actor's Position
-                Vector2 enemyPosition = enemy.GetPosition();
+                Vector2 enemyPosition = enemy.GetCenter();
                 Vector2 actorPosition = actor.GetPosition();
+
+                float fireSpeed = 2;
+                float aimX = Math.Sign(actorPosition.X - enemyPosition.X) * fireSpeed;
+                float aimY = Math.Sign(actorPosition.Y - enemyPosition.Y) * fireSpeed;
              
                 numFramesElapsed++;
 
@@ -63,8 +68,8 @@ namespace Final.Project
                          //    c.     Create the fireball 
                         Actor fireball = new Actor();
                         fireball.SizeTo(fireballSize, fireballSize);
-                        fireball.MoveTo(enemyPosition.X+10, enemyPosition.Y+50);
-                        fireball.Steer(-1, 1);
+                        fireball.MoveTo(enemyPosition.X, enemyPosition.Y);
+                        fireball.Steer(aimX, aimY);
                         fireball.Tint(Color.Red());
                          //    c.     Add to Cast in the FB's group
                         scene.AddActor("fireballs", fireball);
