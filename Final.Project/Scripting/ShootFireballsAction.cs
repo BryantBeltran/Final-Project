@@ -20,8 +20,10 @@ namespace Final.Project
         private int fireballSize = 50;
 
         private int numFramesElapsed = 0;
+        public static int FireRate = 90;
 
         private int deletionFrames = 0;
+        public static int numFireballs = 2;
         
 
         public ShootFireballsAction(IServiceFactory serviceFactory)
@@ -50,11 +52,11 @@ namespace Final.Project
                 numFramesElapsed++;
 
                 // 1. if there are less than 3 fireballs in the cast, do the following:
-                if (fireballs.Count() < 3) 
+                if (fireballs.Count() < numFireballs) 
                 {
 
                      //a. if numFramesElapsed = 90,
-                    if (numFramesElapsed >= 90 )
+                    if (numFramesElapsed >= FireRate )
                     {
                         //    b.     reset numFramesElapsed = 0
                         numFramesElapsed = 0;

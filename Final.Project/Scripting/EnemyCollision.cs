@@ -35,6 +35,8 @@ namespace Final.Project
                     if (actor.Overlaps(enemy))
                     {
                     enemy.MoveTo(numy, numx); 
+                    ShootFireballsAction.FireRate =ShootFireballsAction.FireRate - 10;
+                    ShootFireballsAction.numFireballs = ShootFireballsAction.numFireballs + 1;
                     // Tell it to randomly move to a location on the screen.
                     }
                 }
