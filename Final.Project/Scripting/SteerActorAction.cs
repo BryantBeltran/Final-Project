@@ -81,7 +81,7 @@ namespace Final.Project
                     directionX -= Math.Sign(current_velocity.X);
                 }
 
-                if (_keyboardService.IsKeyDown(KeyboardKey.Space) && actor.isGrounded)
+                if (_keyboardService.IsKeyPressed(KeyboardKey.Space) && actor.isGrounded)
                 {      
                     directionY += -22;
                     actor.isGrounded = false;
@@ -99,36 +99,39 @@ namespace Final.Project
 
                 }
 
-                if (_keyboardService.IsKeyReleased(KeyboardKey.Space)) {
+                if (_keyboardService.IsKeyReleased(KeyboardKey.Space)) 
+                {
                     float durationInSeconds = 0.4f;
                     int framesPerSecond = 60;
-            string[] filePaths = new string[4];
-            filePaths[0] = "Assets/idle (1).png";
-            filePaths[1] = "Assets/idle (2).png";
-            filePaths[2] = "Assets/idle (3).png";
-            filePaths[3] = "Assets/idle (4).png";
-            actor.Animate(filePaths,durationInSeconds,framesPerSecond);
+                    string[] filePaths = new string[4];
+                    filePaths[0] = "Assets/idle (1).png";
+                    filePaths[1] = "Assets/idle (2).png";
+                    filePaths[2] = "Assets/idle (3).png";
+                    filePaths[3] = "Assets/idle (4).png";
+                    actor.Animate(filePaths,durationInSeconds,framesPerSecond);
                 }
-                 if (_keyboardService.IsKeyReleased(KeyboardKey.D)) {
+                if (_keyboardService.IsKeyReleased(KeyboardKey.D)) 
+                {
                     float durationInSeconds = 0.4f;
                     int framesPerSecond = 60;
-            string[] filePaths = new string[4];
-            filePaths[0] = "Assets/idle (1).png";
-            filePaths[1] = "Assets/idle (2).png";
-            filePaths[2] = "Assets/idle (3).png";
-            filePaths[3] = "Assets/idle (4).png";
-            actor.Animate(filePaths,durationInSeconds,framesPerSecond);
+                    string[] filePaths = new string[4];
+                    filePaths[0] = "Assets/idle (1).png";
+                    filePaths[1] = "Assets/idle (2).png";
+                    filePaths[2] = "Assets/idle (3).png";
+                    filePaths[3] = "Assets/idle (4).png";
+                    actor.Animate(filePaths,durationInSeconds,framesPerSecond);
                 }
 
-                 if (_keyboardService.IsKeyReleased(KeyboardKey.A)) {
+                if (_keyboardService.IsKeyReleased(KeyboardKey.A)) 
+                {
                     float durationInSeconds = 0.4f;
                     int framesPerSecond = 60;
-            string[] filePaths = new string[4];
-            filePaths[0] = "Assets/idle (1).png";
-            filePaths[1] = "Assets/idle (2).png";
-            filePaths[2] = "Assets/idle (3).png";
-            filePaths[3] = "Assets/idle (4).png";
-            actor.Animate(filePaths,durationInSeconds,framesPerSecond);
+                    string[] filePaths = new string[4];
+                    filePaths[0] = "Assets/idle (1).png";
+                    filePaths[1] = "Assets/idle (2).png";
+                    filePaths[2] = "Assets/idle (3).png";
+                    filePaths[3] = "Assets/idle (4).png";
+                    actor.Animate(filePaths,durationInSeconds,framesPerSecond);
                 }
                 //add gravity
                 {
