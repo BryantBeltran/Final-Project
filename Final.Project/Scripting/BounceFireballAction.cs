@@ -38,6 +38,7 @@ namespace Final.Project
                 {
                     foreach (Actor fireball in fireballs)
                     {
+                        fireball.ClampTo(screen);
                         fireball.BounceIn(screen);
                     }
                 }
