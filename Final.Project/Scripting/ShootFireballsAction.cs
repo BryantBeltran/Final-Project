@@ -24,7 +24,7 @@ namespace Final.Project
         
         public static int numFireballsFramesIncrease = 0;
 
-        private int deletionFrames = 0;
+        public static int deletionFrames = 0;
         public static int numFireballs = 2;
         
 
@@ -87,7 +87,7 @@ namespace Final.Project
                 deletionFrames ++;
                     // string fireballSound = _settingsService.GetString("fireballSound");
                     // _audioService.PlaySound(fireballSound);
-                if (deletionFrames >= 300)
+                if (deletionFrames >= 150)
                 {
                         Actor fireball = scene.GetFirstActor("fireballs");
                         scene.RemoveActor("fireballs", fireball);
