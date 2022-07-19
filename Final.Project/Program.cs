@@ -125,6 +125,7 @@ namespace Final.Project
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
             EnemyCollision enemyCollision = new EnemyCollision(serviceFactory);
             ShootFireballsAction shootFireballs = new ShootFireballsAction(serviceFactory);
+            BounceFireballAction bounceFireballAction = new BounceFireballAction(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
             PlayMusicAction playMusicAction = new PlayMusicAction(serviceFactory);
 
@@ -153,6 +154,7 @@ namespace Final.Project
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Update, enemyCollision);
             scene.AddAction(Phase.Update, shootFireballs);
+            scene.AddAction(Phase.Update, bounceFireballAction);
             scene.AddAction(Phase.Output, drawActorAction);
             scene.AddAction(Phase.Output, playMusicAction);
             

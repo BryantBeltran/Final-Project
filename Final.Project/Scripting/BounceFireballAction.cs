@@ -11,8 +11,17 @@ namespace Final.Project
     /// Moves the actors and clamps them to the screen boundaries. The call to actor.Move() is what updates
     /// their position on the screen.
     /// </summary>
-    public class BounceFireball : Byui.Games.Scripting.Action
+    public class BounceFireballAction : Byui.Games.Scripting.Action
     {
+
+        private IAudioService _audioService;
+        private ISettingsService _settingsService;
+
+        public BounceFireballAction(IServiceFactory serviceFactory)
+        {
+            _audioService = serviceFactory.GetAudioService();
+            _settingsService = serviceFactory.GetSettingsService();
+        }
         
     
 
@@ -29,14 +38,7 @@ namespace Final.Project
                 {
                     foreach (Actor fireball in fireballs)
                     {
-                        foreach (Actor platform in platforms)
-                        {
-                            if (fireball.Overlaps(platform))
-                            {
-                                
-                            
-                            }
-                        }
+                        fireball.BounceIn(screen);
                     }
                 }
                 catch (Exception exception)
